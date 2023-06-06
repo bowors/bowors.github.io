@@ -13,5 +13,4 @@ pip install flask_cloudflared
 pip install -r requirements.txt
 
 # Start the server by running server.py and enable sharing
-python server.py --share --api --public-api --api-blocking-port 8181 \
-                 --api-streaming-port 8182
+python server.py --share --api --public-api 
