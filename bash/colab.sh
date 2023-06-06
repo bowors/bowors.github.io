@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# test
+# jembut
 # Display NVIDIA GPU information
 !nvidia-smi
 
