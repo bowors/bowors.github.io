@@ -2,6 +2,7 @@
 # test
 # jembut
 # Display NVIDIA GPU information
+# xxx
 !nvidia-smi
 
 # Clone the GitHub repository for text generation web UI
