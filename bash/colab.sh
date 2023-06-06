@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Display NVIDIA GPU information
-nvidia-smi
+!nvidia-smi
 
 # Clone the GitHub repository for text generation web UI
 git clone https://github.com/oobabooga/text-generation-webui
