@@ -9,8 +9,10 @@ git clone https://github.com/oobabooga/text-generation-webui
 cd text-generation-webui
 
 # Install the required Python packages from the requirements.txt file
-pip install flask_cloudflared
 pip install -r requirements.txt
 
+# Download the pre-trained model for text generation
+python download-model.py togethercomputer/RedPajama-INCITE-7B-Chat
+
 # Start the server by running server.py and enable sharing
-python server.py --share --api --public-api 
+python server.py --share --api
