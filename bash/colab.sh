@@ -19,7 +19,7 @@
 
 
 
-#!/bin/bash
+#xxxx/bin/bash
 # KoboldAI Easy Colab Deployment Script by Henk717
 
 # read the options
