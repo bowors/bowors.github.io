@@ -9,6 +9,7 @@ git clone https://github.com/oobabooga/text-generation-webui
 cd text-generation-webui
 
 # Install the required Python packages from the requirements.txt file
+pip install flask_cloudflared
 pip install -r requirements.txt
 
 # Start the server by running server.py and enable sharing
