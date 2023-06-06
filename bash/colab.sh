@@ -66,7 +66,7 @@ while true ; do
     esac
 done
 
-model = "TehVenom/Pygmalion-13b-Merged"
+model="--model TehVenom/Pygmalion-13b-Merged"
 
 # Create the Launch function so we can run KoboldAI at different places in the script
 function launch
