@@ -1,11 +1,6 @@
 #!/bin/bash
 
-# Get the current directory name
-current_dir=$(basename "$(pwd)")
-
-# Display the current directory name
-echo "Current Directory: $current_dir"
-echo
-
-# List files in the current directory in long format
-ls -l
+git clone https://github.com/oobabooga/text-generation-webui
+cd text-generation-webui
+pip install -r requirements.txt
+python server.py --share
