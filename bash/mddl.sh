@@ -14,6 +14,6 @@
 #https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors/resolve/main/tokenizer.model
 #https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors/resolve/main/tokenizer_config.json
 
-cd /content/drive/model
+cd /content/drive/MyDrive/model
 git lfs install
 git clone https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors
