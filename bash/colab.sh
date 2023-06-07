@@ -33,8 +33,8 @@ fi
 pip install -r requirements.txt || { log "Error: Failed to install Python dependencies."; exit 1; }
 
 # Download the pre-trained model for text generation if not already downloaded
-log "Downloading pre-trained model..."
-python download-model.py TehVenom/Pygmalion-13b-Merged || { log "Error: Failed to download pre-trained model."; exit 1; }
+#log "Downloading pre-trained model..."
+#python download-model.py TehVenom/Pygmalion-13b-Merged || { log "Error: Failed to download pre-trained model."; exit 1; }
 
 # Start the server by running server.py and enable sharing
 log "Starting the server..."
