@@ -15,5 +15,5 @@
 #https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors/resolve/main/tokenizer_config.json
 
 pwd
-cd gdrive
+cd /content/drive
 pwd
