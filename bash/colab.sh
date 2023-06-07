@@ -12,9 +12,7 @@ cd text-generation-webui
 pip install -r requirements.txt
 
 # Download the pre-trained model for text generation
-#python download-model.py TehVenom/Pygmalion-13b-Merged
+python download-model.py TehVenom/Pygmalion-7b-Merged-Safetensors
 
 # Start the server by running server.py and enable sharing
 python server.py --share --api
-
-# Jembet
