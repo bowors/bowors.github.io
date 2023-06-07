@@ -5,6 +5,9 @@
 nvidia-smi
 # This command displays information about the NVIDIA GPU.
 
+# Install aria2
+apt-get install aria2
+
 # Clone the GitHub repository for text generation web UI
 git clone https://github.com/oobabooga/text-generation-webui
 # This command clones the specified GitHub repository to the current directory.
