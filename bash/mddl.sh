@@ -13,4 +13,4 @@
 #https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors/resolve/main/tokenizer.json
 #https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors/resolve/main/tokenizer.model
 #https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors/resolve/main/tokenizer_config.json
-git clone https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors
+git clone --progress https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors
