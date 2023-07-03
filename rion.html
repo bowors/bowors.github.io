@@ -1,0 +1,215 @@
+<pre>
+Original SQL
+============
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `id_user` varchar(25) NOT NULL,
+  `id_invoice` varchar(30) NOT NULL,
+  `id_brg` int(11) NOT NULL,
+  `nama_brg` varchar(255) NOT NULL,
+  `jumlah` int(3) NOT NULL,
+  `harga` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `product` (
+  `id_brg` int(11) NOT NULL,
+  `nama_brg` varchar(255) NOT NULL,
+  `keterangan` varchar(255) NOT NULL,
+  `kategori` varchar(60) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `stok` int(4) NOT NULL,
+  `gambar` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `transaction` (
+  `order_id` char(30) NOT NULL,
+  `id_user` varchar(5) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(225) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `mobile_phone` varchar(15) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `kode_pos` varchar(100) NOT NULL,
+  `payment_method` varchar(100) NOT NULL,
+  `ekspedisi` varchar(100) NOT NULL,
+  `tracking_id` varchar(30) NOT NULL,
+  `transaction_time` datetime DEFAULT NULL,
+  `payment_limit` datetime DEFAULT NULL,
+  `status` varchar(2) NOT NULL,
+  `gambar` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL,
+  `nama_user` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `level` varchar(255) NOT NULL,
+  `avatar` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
++-------------------------+                   +----------------------------+
+|           cart          |                   |          product           |
++-------------------------+                   +----------------------------+
+| id                      |                   | id_brg                     |
+| id_user                 |                   | nama_brg                   |
+| id_invoice              |                   | keterangan                 |
+| id_brg                  |                   | kategori                   |
+| nama_brg                |                   | harga                      |
+| jumlah                  |                   | stok                       |
+| harga                   |                   | gambar                     |
++-------------------------+                   +----------------------------+
+
++-------------------------+                   +----------------------------+
+|       transaction       |                   |          user              |
++-------------------------+                   +----------------------------+
+| order_id                |                   | id_user                    |
+| id_user                 |                   | nama_user                  |
+| name                    |                   | email                      |
+| email                   |                   | password                   |
+| alamat                  |                   | level                      |
+| mobile_phone            |                   | avatar                     |
+| city                    +                   +----------------------------+
+| kode_pos                |
+| payment_method          |
+| ekspedisi               |
+| tracking_id             |
+| transaction_time        |
+| payment_limit           |
+| status                  |
+| gambar                  |
++-------------------------+
+
+NORMAL SQL
+==========
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `id_user` varchar(25) NOT NULL,
+  `id_invoice` varchar(30) NOT NULL,
+  `id_brg` int(11) NOT NULL,
+  `jumlah` int(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
+  FOREIGN KEY (`id_brg`) REFERENCES `product` (`id_brg`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `product` (
+  `id_brg` int(11) NOT NULL,
+  `nama_brg` varchar(255) NOT NULL,
+  `keterangan` varchar(255) NOT NULL,
+  `kategori` varchar(60) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `stok` int(4) NOT NULL,
+  `gambar` text NOT NULL,
+  PRIMARY KEY (`id_brg`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `transaction` (
+  `order_id` char(30) NOT NULL,
+  `id_user` varchar(5) NOT NULL,
+  `id_address` int(11) NOT NULL,
+  `tracking_id` varchar(30) NOT NULL,
+  `transaction_time` datetime DEFAULT NULL,
+  `payment_limit` datetime DEFAULT NULL,
+  `status` varchar(2) NOT NULL,
+  PRIMARY KEY (`order_id`),
+  FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
+  FOREIGN KEY (`id_address`) REFERENCES `address` (`id_address`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `address` (
+  `id_address` int(11) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `mobile_phone` varchar(15) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `kode_pos` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_address`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL,
+  `nama_user` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `level` varchar(255) NOT NULL,
+  `avatar` text NOT NULL,
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
++-------------------+                      +------------------------+
+|       cart        |                      |        product         |
++-------------------+                      +------------------------+
+| id                |                      | id_brg                 |
+| id_user           |                      | nama_brg               |
+| id_invoice        |                      | keterangan             |
+| id_brg            |                      | kategori               |
+| nama_brg          |                      | harga                  |
+| jumlah            |                      | stok                   |
+| harga             |                      | gambar                 |
++-------------------+                      +------------------------+
+
++-------------------+                      +------------------------+
+|    transaction    |                      |          user          |
++-------------------+                      +------------------------+
+| order_id          |                      | id_user                |
+| id_user           |                      | nama_user              |
+| id_address        |                      | email                  |
+| tracking_id       |                      | password               |
+| transaction_time  |                      | level                  |
+| payment_limit     |                      | avatar                 |
+| status            +                      +------------------------+
+| gambar            |
++-------------------+
+
+Penjelasan:
+
+    Tabel cart (Keranjang):
+        Bentuk awal: Tidak ada masalah normalisasi pada tabel ini karena tidak 
+        ada ketergantungan fungsional yang tidak perlu. Namun, perhatikan bahwa 
+        kolom id_invoice sebenarnya bisa dihapus jika tidak digunakan untuk 
+        referensi ke tabel lain.
+
+    Tabel product (Produk):
+        Bentuk awal: Tidak ada masalah normalisasi pada tabel ini karena tidak 
+        ada ketergantungan fungsional yang tidak perlu.
+
+    Tabel transaction (Transaksi):
+        Bentuk awal: Terdapat beberapa masalah normalisasi pada tabel ini:
+            Kolom name seharusnya diganti menjadi id_user untuk mengacu pada 
+            pengguna yang melakukan transaksi.
+            Kolom email, alamat, mobile_phone, city, kode_pos, payment_method,
+             ekspedisi, tracking_id, transaction_time, payment_limit, status,
+              dan gambar seharusnya dipisahkan menjadi tabel terpisah karena 
+              mencerminkan entitas terkait dengan transaksi.
+        Bentuk ternormalisasi:
+            Tabel transaction:
+                order_id (PK)
+                id_user (FK)
+                id_address (FK)
+            Tabel address:
+                id_address (PK)
+                alamat
+                mobile_phone
+                city
+                kode_pos
+            Tabel user:
+                id_user (PK)
+                nama_user
+                email
+                password
+                level
+                avatar
+            Alasan: Dengan memisahkan kolom-kolom terkait dengan alamat 
+            pengiriman, informasi pengguna, dan status transaksi ke dalam tabel 
+            terpisah, kita dapat mengurangi redundansi dan memastikan bahwa 
+            setiap entitas memiliki ketergantungan fungsional yang tepat.
+
+    Tabel user (Pengguna):
+        Bentuk awal: Tidak ada masalah normalisasi pada tabel ini karena tidak 
+        ada ketergantungan fungsional yang tidak perlu.
+
+Dengan melakukan normalisasi ini, kita memastikan bahwa setiap tabel memiliki
+struktur yang sesuai dengan prinsip normalisasi, mengurangi redundansi data, 
+dan memungkinkan hubungan yang tepat antara entitas yang berbeda.
+</pre>

@@ -30,7 +30,7 @@ https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors/resolve/main/mod
 https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors/resolve/main/special_tokens_map.json
 https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors/resolve/main/tokenizer.json
 https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors/resolve/main/tokenizer.model
-https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors/resolve/main/tokenizer_config.json" | xargs -n 1 aria2c -x 16 -s 16 --max-connection-per-server=16 --split=16 --min-split-size=1M --max-overall-download-limit=0 --max-download-limit=0 --auto-file-renaming=false --follow-metalink=0 --follow-torrent=0 -d /content/text-generation-webui/models/Pygmalion-7b-Merged-Safetensors
+https://huggingface.co/TehVenom/Pygmalion-7b-Merged-Safetensors/resolve/main/tokenizer_config.json" | xargs -n 1 aria2c -x 16 -s 16 --max-connection-per-server=16 --split=16 --min-split-size=1M --max-overall-download-limit=0 --max-download-limit=0 --max-redirects=0 -d /content/text-generation-webui/models/Pygmalion-7b-Merged-Safetensors
 # This command uses echo to print the URLs, pipes them to xargs to pass each URL as an argument to aria2c, and downloads the files using specified options.
 
 
